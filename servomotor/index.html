@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Motor 3-Phase Monitor</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inconsolata:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app">
+    <header class="topbar">
+      <svg class="topbar-icon" viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="15" r="13" stroke="rgba(255,255,255,.6)" stroke-width="1.5" />
+        <circle cx="15" cy="15" r="7" stroke="rgba(255,255,255,.9)" stroke-width="1.5" stroke-dasharray="3 2" />
+        <circle cx="15" cy="15" r="2.5" fill="#fff" />
+        <line x1="15" y1="2" x2="15" y2="6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="15" y1="24" x2="15" y2="28" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="2" y1="15" x2="6" y2="15" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="24" y1="15" x2="28" y2="15" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+      <div class="topbar-title">
+        Motor 3-Phase
+        <small>MONITORING SYSTEM</small>
+      </div>
+      <div class="topbar-right">
+        <div class="sync-pill">
+          <div class="sync-dot" id="sdot"></div>
+          <span class="sync-label" id="slabel">Idle</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── PAGES ────────────────────────────────── -->
+    <div class="pages">
+      <div class="page active" id="p-menu">
+        <div class="menu-page">
+          <div class="menu-hero">
+            <div class="hero-motor">
+              <svg viewBox="0 0 60 60" fill="none">
+                <rect x="8" y="18" width="32" height="24" rx="4" fill="rgba(255,255,255,.25)"
+                  stroke="rgba(255,255,255,.6)" stroke-width="1.5" />
+                <rect x="40" y="24" width="10" height="12" rx="2" fill="rgba(255,255,255,.2)"
+                  stroke="rgba(255,255,255,.5)" stroke-width="1.2" />
+                <circle cx="24" cy="30" r="7" stroke="rgba(255,255,255,.9)" stroke-width="1.8"
+                  fill="rgba(255,255,255,.1)" />
+                <circle cx="24" cy="30" r="2.5" fill="rgba(255,255,255,.9)" />
+                <line x1="2" y1="26" x2="8" y2="26" stroke="rgba(255,255,255,.7)" stroke-width="1.5" />
+                <line x1="2" y1="30" x2="8" y2="30" stroke="rgba(255,255,255,.7)" stroke-width="1.5" />
+                <line x1="2" y1="34" x2="8" y2="34" stroke="rgba(255,255,255,.7)" stroke-width="1.5" />
+              </svg>
+            </div>
+            <div class="hero-info">
+              <h2>Selamat Datang</h2>
+              <p>Aplikasi monitoring motor<br>induksi 3 fase berbasis<br>Google Sheets IoT</p>
+            </div>
+          </div>
+          <div class="menu-grid">
+            <div class="menu-card" onclick="goTo('p-meas')">
+              <div class="menu-card-icon mc-blue">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2a10 10 0 1 1 0 20A10 10 0 0 1 12 2z" stroke="#0ea5e9" stroke-width="1.8" />
+                  <path d="M12 12 7 8" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" />
+                  <circle cx="12" cy="12" r="1.5" fill="#0ea5e9" />
+                  <line x1="12" y1="4" x2="12" y2="6" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="4" y1="12" x2="6" y2="12" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3>Pengukuran</h3>
+              <p>Data tegangan &amp; arus real-time</p>
+            </div>
+            <div class="menu-card" onclick="goTo('p-komp')">
+              <div class="menu-card-icon mc-green">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="6" width="18" height="13" rx="2" stroke="#10b981" stroke-width="1.8" />
+                  <path d="M8 6V4h8v2" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" />
+                  <line x1="8" y1="11" x2="16" y2="11" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="8" y1="14.5" x2="13" y2="14.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3>Komponen</h3>
+              <p>Komponen rangkaian DOL</p>
+            </div>
+            <div class="menu-card" onclick="goTo('p-mat')">
+              <div class="menu-card-icon mc-amber">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 4h8l4 4v12H4V4z" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round" />
+                  <path d="M12 4v4h4" stroke="#f59e0b" stroke-width="1.8" />
+                  <line x1="7" y1="13" x2="14" y2="13" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="7" y1="16" x2="12" y2="16" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3>Materi</h3>
+              <p>Teori sistem motor 3 fase</p>
+            </div>
+            <div class="menu-card" onclick="goTo('p-auth')">
+              <div class="menu-card-icon mc-gray">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="8" r="4" stroke="#64748b" stroke-width="1.8" />
+                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3>Tentang Penulis</h3>
+              <p>Profil &amp; informasi penulis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ PAGE: PENGUKURAN ════════════════════════ -->
+      <div class="page" id="p-meas">
+        <div class="meas-page">
+
+          <!-- Config -->
+          <button class="btn-connect" onclick="fetchSheets()">Ambil Data</button>
+          <div class="cfg-card">
+            <div class="cfg-row">
+              <div class="cfg-field">
+                <label>Auto-Refresh</label>
+                <select id="interval" onchange="setTimer()">
+                  <option value="0" selected>Off</option>
+                  <option value="10000">10 detik</option>
+                  <option value="30000">30 detik</option>
+                  <option value="60000">1 menit</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase cards -->
+          <div class="section-title">Pengukuran Per Fase</div>
+          <div class="phase-cards">
+            <!-- Phase 1 -->
+            <div class="ph-card" id="card1">
+              <div class="ph-header">
+                <span class="ph-title" style="color:var(--ph1)">FASE 1</span>
+                <!-- <span class="ph-badge ok-badge" id="badge1">OK</span> -->
+              </div>
+              <div class="ph-gauges">
+                <div class="g-wrap">
+                  <canvas id="gv1" width="150" height="92"></canvas>
+                  <div class="g-val" id="vv1" style="color:var(--ph1)">—</div>
+                  <div class="g-unit">TEGANGAN (V)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gi1" width="150" height="92"></canvas>
+                  <div class="g-val" id="vi1" style="color:var(--ph1)">—</div>
+                  <div class="g-unit">ARUS (A)</div>
+                </div>
+              </div>
+            </div>
+            <!-- Phase 2 -->
+            <div class="ph-card" id="card2">
+              <div class="ph-header">
+                <span class="ph-title" style="color:var(--ph2)">FASE 2</span>
+                <!-- <span class="ph-badge ok-badge" id="badge2">OK</span> -->
+              </div>
+              <div class="ph-gauges">
+                <div class="g-wrap">
+                  <canvas id="gv2" width="150" height="92"></canvas>
+                  <div class="g-val" id="vv2" style="color:var(--ph2)">—</div>
+                  <div class="g-unit">TEGANGAN (V)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gi2" width="150" height="92"></canvas>
+                  <div class="g-val" id="vi2" style="color:var(--ph2)">—</div>
+                  <div class="g-unit">ARUS (A)</div>
+                </div>
+              </div>
+            </div>
+            <!-- Phase 3 -->
+            <div class="ph-card" id="card3">
+              <div class="ph-header">
+                <span class="ph-title" style="color:var(--ph3)">FASE 3</span>
+                <!-- <span class="ph-badge ok-badge" id="badge3">OK</span> -->
+              </div>
+              <div class="ph-gauges">
+                <div class="g-wrap">
+                  <canvas id="gv3" width="150" height="92"></canvas>
+                  <div class="g-val" id="vv3" style="color:var(--ph3)">—</div>
+                  <div class="g-unit">TEGANGAN (V)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gi3" width="150" height="92"></canvas>
+                  <div class="g-val" id="vi3" style="color:var(--ph3)">—</div>
+                  <div class="g-unit">ARUS (A)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Log -->
+          <div class="section-title">Log Data (7 baris terakhir)</div>
+          <div class="log-card">
+            <div class="log-head">
+              <span>Riwayat Pembacaan</span>
+              <span class="log-count" id="rowCount">0 baris</span>
+            </div>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Waktu</th>
+                    <th>V1</th>
+                    <th>I1</th>
+                    <th>V2</th>
+                    <th>I2</th>
+                    <th>V3</th>
+                    <th>I3</th>
+                  </tr>
+                </thead>
+                <tbody id="logBody">
+                  <tr>
+                    <td colspan="8" style="text-align:center;color:var(--text-3);padding:20px 10px;font-size:12px">
+                      Masukkan kredensial di atas lalu tekan "Ambil Data"
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="page" id="p-komp">
+        <div class="komp-page">
+          <div class="page-hero" style="background:linear-gradient(135deg,var(--green),#059669)">
+            <svg viewBox="0 0 40 40" fill="none">
+              <rect x="4" y="10" width="24" height="20" rx="3" stroke="rgba(255,255,255,.8)" stroke-width="1.5" />
+              <rect x="28" y="15" width="8" height="10" rx="2" stroke="rgba(255,255,255,.6)" stroke-width="1.2" />
+              <circle cx="16" cy="20" r="5" stroke="#fff" stroke-width="1.5" fill="rgba(255,255,255,.1)" />
+              <circle cx="16" cy="20" r="1.5" fill="#fff" />
+            </svg>
+            <div>
+              <h2>Komponen</h2>
+              <p>Rangkaian Motor DOL</p>
+            </div>
+          </div>
+          <div class="komp-grid">
+
+            <div class="komp-card">
+              <div class="komp-icon" style="background:var(--red-bg)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="8" width="18" height="8" rx="2" stroke="#ef4444" stroke-width="1.8" />
+                  <line x1="8" y1="8" x2="8" y2="4" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="16" y1="8" x2="16" y2="4" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="12" y1="16" x2="12" y2="20" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="komp-info">
+                <span class="tag" style="background:var(--red-bg);color:var(--red)">Proteksi</span>
+                <h4>MCB / MCCB</h4>
+                <p>Pemutus sirkuit otomatis yang melindungi rangkaian dari arus lebih dan hubung singkat pada jalur
+                  utama 3 fase.</p>
+              </div>
+            </div>
+
+            <div class="komp-card">
+              <div class="komp-icon" style="background:var(--accent-bg)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <rect x="4" y="6" width="16" height="12" rx="2" stroke="#0ea5e9" stroke-width="1.8" />
+                  <circle cx="12" cy="12" r="3" stroke="#0ea5e9" stroke-width="1.5" />
+                  <line x1="4" y1="12" x2="1" y2="12" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" />
+                  <line x1="20" y1="12" x2="23" y2="12" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="komp-info">
+                <span class="tag" style="background:var(--accent-bg);color:var(--accent)">Switching</span>
+                <h4>Kontaktor Magnet</h4>
+                <p>Saklar elektromagnetik berdaya besar untuk menghubung/memutus beban motor secara otomatis melalui
+                  sinyal kontrol.</p>
+              </div>
+            </div>
+
+            <div class="komp-card">
+              <div class="komp-icon" style="background:var(--amber-bg)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z" stroke="#f59e0b" stroke-width="1.8"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="komp-info">
+                <span class="tag" style="background:var(--amber-bg);color:var(--amber)">Proteksi</span>
+                <h4>Thermal Overload Relay</h4>
+                <p>Melindungi motor dari panas berlebih akibat beban lebih. Memutus rangkaian otomatis bila arus
+                  melebihi batas setpoint.</p>
+              </div>
+            </div>
+
+            <div class="komp-card">
+              <div class="komp-icon" style="background:var(--green-bg)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="8" stroke="#10b981" stroke-width="1.8" />
+                  <circle cx="12" cy="12" r="3.5" fill="rgba(16,185,129,.2)" stroke="#10b981" stroke-width="1.5" />
+                </svg>
+              </div>
+              <div class="komp-info">
+                <span class="tag" style="background:var(--green-bg);color:var(--green)">Kontrol</span>
+                <h4>Push Button ON (NO)</h4>
+                <p>Tombol hijau <em>normally-open</em> untuk menghidupkan motor. Mengaktifkan coil kontaktor sehingga
+                  kontak utama menutup.</p>
+              </div>
+            </div>
+
+            <div class="komp-card">
+              <div class="komp-icon" style="background:var(--red-bg)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="8" stroke="#ef4444" stroke-width="1.8" />
+                  <line x1="8" y1="12" x2="16" y2="12" stroke="#ef4444" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="komp-info">
+                <span class="tag" style="background:var(--red-bg);color:var(--red)">Kontrol</span>
+                <h4>Push Button OFF (NC)</h4>
+                <p>Tombol merah <em>normally-closed</em> untuk mematikan motor. Memutus rangkaian kontrol sehingga
+                  kontaktor de-energized.</p>
+              </div>
+            </div>
+
+            <div class="komp-card">
+              <div class="komp-icon" style="background:#f1f5f9">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="3" width="18" height="18" rx="3" stroke="#64748b" stroke-width="1.8" />
+                  <path d="M8 12h8M12 8v8" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="komp-info">
+                <span class="tag" style="background:#f1f5f9;color:#64748b">Tambahan</span>
+                <h4>Auxiliary Contact</h4>
+                <p>Kontak bantu kontaktor untuk <em>self-holding circuit</em> — mempertahankan motor tetap ON setelah
+                  tombol ON dilepas.</p>
+              </div>
+            </div>
+
+            <div class="komp-card">
+              <div class="komp-icon" style="background:var(--accent-bg)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <rect x="5" y="8" width="14" height="12" rx="2" stroke="#0ea5e9" stroke-width="1.8" />
+                  <path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="komp-info">
+                <span class="tag" style="background:var(--accent-bg);color:var(--accent)">Beban</span>
+                <h4>Motor Induksi 3 Fase</h4>
+                <p>Beban utama yang berputar saat ketiga fase terhubung. Rating tipikal: 380 V, 50 Hz. Arus starting
+                  5–7× arus nominal.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="page" id="p-mat">
+        <div class="materi-page">
+          <div class="page-hero" style="background:linear-gradient(135deg,var(--amber),#d97706)">
+            <svg viewBox="0 0 40 40" fill="none">
+              <path d="M6 6h16l8 8v20H6V6z" stroke="rgba(255,255,255,.8)" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M22 6v8h8" stroke="rgba(255,255,255,.6)" stroke-width="1.5" />
+              <line x1="11" y1="20" x2="25" y2="20" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="11" y1="25" x2="20" y2="25" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <div>
+              <h2>Materi</h2>
+              <p>Sistem Kerja Motor 3 Fase</p>
+            </div>
+          </div>
+
+          <div class="materi-list">
+
+            <div class="m-card" onclick="toggleMateri(this)">
+              <div class="m-card-head">
+                <div class="m-num">1</div>
+                <div class="m-title">Motor Induksi 3 Fase</div>
+                <span class="m-arrow">▶</span>
+              </div>
+              <div class="m-body">
+                <div class="m-body-inner">
+                  Motor induksi 3 fase adalah mesin listrik yang mengubah energi listrik AC 3 fase menjadi energi
+                  mekanik rotasi. Prinsip kerjanya berdasarkan <strong>induksi elektromagnetik</strong> — medan magnet
+                  putar (rotating magnetic field) yang dihasilkan stator menginduksi arus pada rotor sehingga rotor ikut
+                  berputar.
+                  <ul>
+                    <li>Stator: bagian diam dengan belitan 3 fase</li>
+                    <li>Rotor: bagian berputar (squirrel cage atau wound rotor)</li>
+                    <li>Kecepatan sinkron: Ns = 120f/P (f=frekuensi, P=jumlah kutub)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="m-card" onclick="toggleMateri(this)">
+              <div class="m-card-head">
+                <div class="m-num">2</div>
+                <div class="m-title">Rangkaian Direct On Line (DOL)</div>
+                <span class="m-arrow">▶</span>
+              </div>
+              <div class="m-body">
+                <div class="m-body-inner">
+                  DOL adalah metode starting motor paling sederhana di mana motor langsung dihubungkan ke tegangan
+                  jaringan penuh tanpa rangkaian pereduksi tegangan.
+                  <ul>
+                    <li>Cocok untuk motor kecil hingga ±5,5 kW</li>
+                    <li>Arus starting tinggi (5–7× I nominal)</li>
+                    <li>Torsi starting besar dan langsung</li>
+                    <li>Komponen: MCB + Kontaktor + TOR + Push Button ON/OFF</li>
+                  </ul>
+                  <strong>Keuntungan:</strong> murah, sederhana, torsi langsung besar.<br>
+                  <strong>Kekurangan:</strong> lonjakan arus besar saat starting.
+                </div>
+              </div>
+            </div>
+
+            <div class="m-card" onclick="toggleMateri(this)">
+              <div class="m-card-head">
+                <div class="m-num">3</div>
+                <div class="m-title">Tegangan &amp; Arus Fase</div>
+                <span class="m-arrow">▶</span>
+              </div>
+              <div class="m-body">
+                <div class="m-body-inner">
+                  <strong>Tegangan Fase (V Phase)</strong> adalah tegangan antara salah satu konduktor fase dan titik
+                  netral. Pada sistem 380/220 V Indonesia:
+                  <ul>
+                    <li>Tegangan fase-netral: 220 V nominal</li>
+                    <li>Tegangan fase-fase: 380 V nominal</li>
+                    <li>Toleransi: ±10% (198–242 V)</li>
+                  </ul>
+                  <strong>Arus Fase (I Phase)</strong> mengalir pada masing-masing konduktor fase. Monitoring arus
+                  penting untuk mendeteksi beban lebih, putusnya fase, dan kondisi abnormal lainnya.
+                </div>
+              </div>
+            </div>
+
+            <div class="m-card" onclick="toggleMateri(this)">
+              <div class="m-card-head">
+                <div class="m-num">4</div>
+                <div class="m-title">Ketidakseimbangan Fase</div>
+                <span class="m-arrow">▶</span>
+              </div>
+              <div class="m-body">
+                <div class="m-body-inner">
+                  Ketidakseimbangan tegangan terjadi bila tegangan antar fase tidak sama. Standar <strong>NEMA
+                    MG-1</strong> mensyaratkan ketidakseimbangan ≤ 1% untuk operasi normal.
+                  <ul>
+                    <li>Formula: % Imbalance = (Deviasi maks / Rata-rata) × 100%</li>
+                    <li>Efek: panas berlebih pada belitan, getaran, umur motor berkurang</li>
+                    <li>Setiap 1% ketidakseimbangan menaikkan suhu ±1–2%</li>
+                  </ul>
+                  Ketidakseimbangan arus lebih berbahaya dari ketidakseimbangan tegangan dan sering disebabkan oleh
+                  beban tidak merata.
+                </div>
+              </div>
+            </div>
+
+            <div class="m-card" onclick="toggleMateri(this)">
+              <div class="m-card-head">
+                <div class="m-num">5</div>
+                <div class="m-title">Sistem Proteksi Motor</div>
+                <span class="m-arrow">▶</span>
+              </div>
+              <div class="m-body">
+                <div class="m-body-inner">
+                  Proteksi motor bertujuan melindungi motor dan rangkaian dari kondisi abnormal:
+                  <ul>
+                    <li><strong>MCB/MCCB:</strong> proteksi hubung singkat &amp; arus lebih pada rangkaian utama</li>
+                    <li><strong>Thermal Overload Relay:</strong> proteksi beban lebih berkelanjutan (panas)</li>
+                    <li><strong>Fuse:</strong> proteksi hubung singkat cepat</li>
+                    <li><strong>Thermistor/PTC:</strong> proteksi suhu belitan langsung</li>
+                  </ul>
+                  Kombinasi MCB + Kontaktor + TOR memberikan perlindungan menyeluruh untuk aplikasi DOL standar
+                  industri.
+                </div>
+              </div>
+            </div>
+
+            <div class="m-card" onclick="toggleMateri(this)">
+              <div class="m-card-head">
+                <div class="m-num">6</div>
+                <div class="m-title">Monitoring IoT via Google Sheets</div>
+                <span class="m-arrow">▶</span>
+              </div>
+              <div class="m-body">
+                <div class="m-body-inner">
+                  Sistem ini menggunakan <strong>Google Sheets sebagai database IoT</strong> untuk menyimpan dan
+                  menampilkan data sensor secara real-time.
+                  <ul>
+                    <li><strong>Hardware:</strong> ESP32/ESP8266 + sensor tegangan (ZMPT101B) + sensor arus (SCT-013)
+                    </li>
+                    <li><strong>Firmware:</strong> membaca ADC dan mengirim data ke Sheets via HTTP POST (Google Apps
+                      Script)</li>
+                    <li><strong>Sheets API v4:</strong> dashboard ini membaca baris terbaru sebagai nilai live</li>
+                    <li><strong>Format kolom:</strong> A=Timestamp, B=V1, C=I1, D=V2, E=I2, F=V3, G=I3</li>
+                  </ul>
+                  Auto-refresh tersedia setiap 5, 10, 30 detik atau 1 menit sesuai kebutuhan pemantauan.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="page" id="p-auth">
+        <div class="author-page">
+
+          <div class="author-card">
+            <img src="assets/pp.png" class="avatar">
+            <!-- <div class="avatar">FA</div> -->
+            <div class="author-name">Fauzan</div>
+            <div class="author-role">Mahasiswa Teknik Elektro</div>
+            <p class="author-bio">
+              Mahasiswa semester akhir yang berfokus pada sistem kendali, otomasi industri, dan monitoring berbasis IoT.
+              Proyek ini merupakan bagian dari penelitian tugas akhir tentang sistem monitoring motor real-time.
+            </p>
+            <div class="divider"></div>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-row-icon">🎓</span>
+                <span class="info-row-label">Universitas</span>
+                <span class="info-row-val">Universitas Negeri Yogyakarta</span>
+              </div>
+              <div class="info-row">
+                <span class="info-row-icon">📚</span>
+                <span class="info-row-label">Program Studi</span>
+                <span class="info-row-val">S1 Teknik Elektro</span>
+              </div>
+              <div class="info-row">
+                <span class="info-row-icon">📅</span>
+                <span class="info-row-label">Angkatan</span>
+                <span class="info-row-val">2022</span>
+              </div>
+              <div class="info-row">
+                <span class="info-row-icon">📧</span>
+                <span class="info-row-label">Mail</span>
+                <span class="info-row-val">fauzan@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <h4>Informasi Aplikasi</h4>
+            <div class="app-info-row"><span>Nama Aplikasi</span><span>Motor 3Φ Monitor</span></div>
+            <div class="app-info-row"><span>Versi</span><span>1.0.0</span></div>
+            <div class="app-info-row"><span>Data Source</span><span>Google Sheets API v4</span></div>
+            <div class="app-info-row"><span>Hardware</span><span>ESP32</span></div>
+            <div class="app-info-row"><span>Tahun</span><span>2026</span></div>
+          </div>
+
+          <div class="app-card">
+            <h4>Dosen Pembimbing</h4>
+            <div class="app-info-row"><span>Nama</span><span>Joko</span></div>
+            <div class="app-info-row"><span>NIP</span><span>123456789</span></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /pages -->
+
+    <nav class="bottomnav">
+      <button class="nav-item" id="nb-menu" onclick="goTo('p-menu')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="5" width="18" height="2.5" rx="1.25" fill="currentColor" />
+          <rect x="3" y="11" width="14" height="2.5" rx="1.25" fill="currentColor" />
+          <rect x="3" y="17" width="10" height="2.5" rx="1.25" fill="currentColor" />
+        </svg>
+        <span class="nav-label">Menu</span>
+      </button>
+      <button class="nav-item" id="nb-meas" onclick="goTo('p-meas')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+          <path d="M12 12 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+        </svg>
+        <span class="nav-label">Ukur</span>
+      </button>
+      <button class="nav-item" id="nb-komp" onclick="goTo('p-komp')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8" />
+          <path d="M8 6V4h8v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">Komponen</span>
+      </button>
+      <button class="nav-item" id="nb-mat" onclick="goTo('p-mat')">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M4 4h9l4 4v12H4V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          <path d="M13 4v4h4" stroke="currentColor" stroke-width="1.8" />
+          <line x1="7" y1="13" x2="14" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="7" y1="16" x2="11" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">Materi</span>
+      </button>
+    </nav>
+
+  </div><!-- /app -->
+
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
