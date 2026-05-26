@@ -123,21 +123,19 @@
                 <label>Auto-Refresh</label>
                 <select id="interval" onchange="setTimer()">
                   <option value="0" selected>Off</option>
-                  <option value="10000">10 detik</option>
-                  <option value="30000">30 detik</option>
-                  <option value="60000">1 menit</option>
+                  <option value="1">On</option>
                 </select>
               </div>
             </div>
           </div>
 
           <!-- Phase cards -->
-          <div class="section-title">Pengukuran Per Fase</div>
+          <div class="section-title">Pengukuran Per Fasa</div>
           <div class="phase-cards">
             <!-- Phase 1 -->
             <div class="ph-card" id="card1">
               <div class="ph-header">
-                <span class="ph-title" style="color:var(--ph1)">FASE 1</span>
+                <span class="ph-title" style="color:var(--ph1)">FASA VR 1</span>
                 <!-- <span class="ph-badge ok-badge" id="badge1">OK</span> -->
               </div>
               <div class="ph-gauges">
@@ -151,12 +149,22 @@
                   <div class="g-val" id="vi1" style="color:var(--ph1)">—</div>
                   <div class="g-unit">ARUS (A)</div>
                 </div>
+                <div class="g-wrap">
+                  <canvas id="gw1" width="150" height="92"></canvas>
+                  <div class="g-val" id="vw1" style="color:var(--ph1)">—</div>
+                  <div class="g-unit">DAYA (W)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gf1" width="150" height="92"></canvas>
+                  <div class="g-val" id="vf1" style="color:var(--ph1)">—</div>
+                  <div class="g-unit">FREKUENSI (F)</div>
+                </div>
               </div>
             </div>
             <!-- Phase 2 -->
             <div class="ph-card" id="card2">
               <div class="ph-header">
-                <span class="ph-title" style="color:var(--ph2)">FASE 2</span>
+                <span class="ph-title" style="color:var(--ph2)">FASA VS 2</span>
                 <!-- <span class="ph-badge ok-badge" id="badge2">OK</span> -->
               </div>
               <div class="ph-gauges">
@@ -170,12 +178,22 @@
                   <div class="g-val" id="vi2" style="color:var(--ph2)">—</div>
                   <div class="g-unit">ARUS (A)</div>
                 </div>
+                <div class="g-wrap">
+                  <canvas id="gw2" width="150" height="92"></canvas>
+                  <div class="g-val" id="vw2" style="color:var(--ph2)">—</div>
+                  <div class="g-unit">DAYA (W)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gf2" width="150" height="92"></canvas>
+                  <div class="g-val" id="vf2" style="color:var(--ph2)">—</div>
+                  <div class="g-unit">FREKUENSI (F)</div>
+                </div>
               </div>
             </div>
             <!-- Phase 3 -->
             <div class="ph-card" id="card3">
               <div class="ph-header">
-                <span class="ph-title" style="color:var(--ph3)">FASE 3</span>
+                <span class="ph-title" style="color:var(--ph3)">FASA VT 3</span>
                 <!-- <span class="ph-badge ok-badge" id="badge3">OK</span> -->
               </div>
               <div class="ph-gauges">
@@ -189,34 +207,155 @@
                   <div class="g-val" id="vi3" style="color:var(--ph3)">—</div>
                   <div class="g-unit">ARUS (A)</div>
                 </div>
+
+                <div class="g-wrap">
+                  <canvas id="gw3" width="150" height="92"></canvas>
+                  <div class="g-val" id="vw3" style="color:var(--ph3)">—</div>
+                  <div class="g-unit">DAYA (W)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gf3" width="150" height="92"></canvas>
+                  <div class="g-val" id="vf3" style="color:var(--ph3)">—</div>
+                  <div class="g-unit">FREKUENSI (F)</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Log -->
-          <div class="section-title">Log Data (7 baris terakhir)</div>
+          <div class="section-title">Riwayat Per Fase (4 terbaru)</div>
           <div class="log-card">
             <div class="log-head">
-              <span>Riwayat Data</span>
+              <span>Riwayat Fase</span>
+              <span class="log-count" id="rowCountFase">0 Data</span>
+            </div>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Waktu</th>
+                    <th>V1</th>
+                    <th>A1</th>
+                    <th>W1</th>
+                    <th>F1</th>
+                    <th>V2</th>
+                    <th>A2</th>
+                    <th>W2</th>
+                    <th>F2</th>
+                    <th>V3</th>
+                    <th>A3</th>
+                    <th>W3</th>
+                    <th>F3</th>
+                  </tr>
+                </thead>
+                <tbody id="logBody">
+                  <tr>
+                    <td colspan="13" style="text-align:center;color:var(--text-3);padding:20px 10px;font-size:12px">
+                      Tekan "Ambil Data" untuk menampilkan data awal
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="section-title">Fase Line-to-Line</div>
+          <div class="phase-cards">
+            <div class="ph-card" id="cardl1">
+              <div class="ph-header">
+                <span class="ph-title" style="color:var(--ph1)">FASA VRS (L1)</span>
+              </div>
+              <div class="ph-gauges ph-gauges-3">
+                <div class="g-wrap">
+                  <canvas id="gvl1" width="120" height="74"></canvas>
+                  <div class="g-val" id="vvl1" style="color:var(--ph1)">—</div>
+                  <div class="g-unit">TEGANGAN (V)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gil1" width="120" height="74"></canvas>
+                  <div class="g-val" id="vil1" style="color:var(--ph1)">—</div>
+                  <div class="g-unit">ARUS (A)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gwl1" width="120" height="74"></canvas>
+                  <div class="g-val" id="vwl1" style="color:var(--ph1)">—</div>
+                  <div class="g-unit">DAYA (W)</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="ph-card" id="cardl2">
+              <div class="ph-header">
+                <span class="ph-title" style="color:var(--ph2)">FASA VST (L2)</span>
+              </div>
+              <div class="ph-gauges ph-gauges-3">
+                <div class="g-wrap">
+                  <canvas id="gvl2" width="120" height="74"></canvas>
+                  <div class="g-val" id="vvl2" style="color:var(--ph2)">—</div>
+                  <div class="g-unit">TEGANGAN (V)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gil2" width="120" height="74"></canvas>
+                  <div class="g-val" id="vil2" style="color:var(--ph2)">—</div>
+                  <div class="g-unit">ARUS (A)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gwl2" width="120" height="74"></canvas>
+                  <div class="g-val" id="vwl2" style="color:var(--ph2)">—</div>
+                  <div class="g-unit">DAYA (W)</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="ph-card" id="cardl3">
+              <div class="ph-header">
+                <span class="ph-title" style="color:var(--ph3)">FASA VTR (L3)</span>
+              </div>
+              <div class="ph-gauges ph-gauges-3">
+                <div class="g-wrap">
+                  <canvas id="gvl3" width="120" height="74"></canvas>
+                  <div class="g-val" id="vvl3" style="color:var(--ph3)">—</div>
+                  <div class="g-unit">TEGANGAN (V)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gil3" width="120" height="74"></canvas>
+                  <div class="g-val" id="vil3" style="color:var(--ph3)">—</div>
+                  <div class="g-unit">ARUS (A)</div>
+                </div>
+                <div class="g-wrap">
+                  <canvas id="gwl3" width="120" height="74"></canvas>
+                  <div class="g-val" id="vwl3" style="color:var(--ph3)">—</div>
+                  <div class="g-unit">DAYA (W)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="section-title">Riwayat Line-to-Line (4 terbaru)</div>
+          <div class="log-card">
+            <div class="log-head">
+              <span>Riwayat L-to-L</span>
               <span class="log-count" id="rowCount">0 Data</span>
             </div>
             <div class="tbl-wrap">
               <table>
                 <thead>
                   <tr>
-                    <th>#</th>
                     <th>Waktu</th>
-                    <th>V1</th>
-                    <th>I1</th>
-                    <th>V2</th>
-                    <th>I2</th>
-                    <th>V3</th>
-                    <th>I3</th>
+                    <th>VL1</th>
+                    <th>AL1</th>
+                    <th>WL1</th>
+                    <th>VL2</th>
+                    <th>AL2</th>
+                    <th>WL2</th>
+                    <th>VL3</th>
+                    <th>AL3</th>
+                    <th>WL3</th>
                   </tr>
                 </thead>
-                <tbody id="logBody">
+                <tbody id="logBodyLL">
                   <tr>
-                    <td colspan="8" style="text-align:center;color:var(--text-3);padding:20px 10px;font-size:12px">
+                    <td colspan="10" style="text-align:center;color:var(--text-3);padding:20px 10px;font-size:12px">
                       Tekan "Ambil Data" untuk menampilkan data awal
                     </td>
                   </tr>
@@ -529,7 +668,7 @@
               <div class="info-row">
                 <span class="info-row-icon">📚</span>
                 <span class="info-row-label">Program Studi</span>
-                <span class="info-row-val">S1 Teknik Elektro</span>
+                <span class="info-row-val">S1 Pendidikan Teknik Elektro</span>
               </div>
               <div class="info-row">
                 <span class="info-row-icon">📅</span>
@@ -539,18 +678,9 @@
               <div class="info-row">
                 <span class="info-row-icon">📧</span>
                 <span class="info-row-label">Mail</span>
-                <span class="info-row-val">fauzan@gmail.com</span>
+                <span class="info-row-val">fauzan.2022@student.uny.ac.id</span>
               </div>
             </div>
-          </div>
-
-          <div class="app-card">
-            <h4>Informasi Aplikasi</h4>
-            <div class="app-info-row"><span>Nama Aplikasi</span><span>Motor 3 Monitor</span></div>
-            <!-- <div class="app-info-row"><span>Versi</span><span>1.0.0</span></div> -->
-            <div class="app-info-row"><span>Data Source</span><span>Google Sheets API v4</span></div>
-            <div class="app-info-row"><span>Hardware</span><span>ESP32</span></div>
-            <div class="app-info-row"><span>Tahun</span><span>2026</span></div>
           </div>
 
           <div class="app-card">
