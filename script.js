@@ -245,8 +245,6 @@ async function fetchSheets() {
       tbodyLL.appendChild(tr);
     });
 
-    document.getElementById('rowCountFase').textContent = validJson.length + ' Data';
-    document.getElementById('rowCount').textContent = validJson.length + ' Data';
     setSyncState('live');
 
     if (autoRefreshOn) {
