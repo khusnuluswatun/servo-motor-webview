@@ -540,6 +540,18 @@ body {
     gap: 8px
 }
 
+.ph-gauges-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ph-gauges-3 .g-val {
+    font-size: 16px;
+}
+
+.ph-gauges-3 .g-unit {
+    font-size: 9px;
+}
+
 .g-wrap {
     display: flex;
     flex-direction: column;
