@@ -33,7 +33,7 @@ function goTo(id) {
   }
 }
 
-window.addEventListener('hashchange', function() {
+window.addEventListener('hashchange', function () {
   const hash = window.location.hash;
   if (hash === '#sub') {
     goToPage(currentSubPage);
@@ -42,7 +42,7 @@ window.addEventListener('hashchange', function() {
   }
 });
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
   const hash = window.location.hash;
   if (hash === '#sub') {
     goToPage(currentSubPage);
@@ -221,7 +221,7 @@ async function fetchSheets() {
     );
 
     // Update line-to-line gauges
-    // Hitung daya line-to-line: P = √3 × V × I × 0.85
+    // Rumus daya line-to-line: P = √3 × V × I × 0.85
     let vrs = p(last["Vrs (V)"]), vst = p(last["Vst (V)"]), vtr = p(last["Vtr (V)"]);
     let irs = p(last["Irs (A)"]), ist = p(last["Ist (A)"]), itr = p(last["Itr (A)"]);
     let sqrtt3 = Math.sqrt(3);
