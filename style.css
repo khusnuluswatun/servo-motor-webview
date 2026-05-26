@@ -808,6 +808,17 @@ tbody td {
     line-height: 1.6
 }
 
+.komp-info img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--r-sm);
+    margin: 8px 0;
+    display: block;
+    object-fit: contain;
+    border: 1px solid var(--border);
+}
+
 .tag {
     display: inline-block;
     font-size: 10px;
