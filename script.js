@@ -22,7 +22,11 @@ function goToPage(id) {
 
 function goTo(id) {
   if (id === 'p-menu') {
-    window.location.hash = 'menu';
+    if (window.location.hash === '#sub') {
+      history.back();
+    } else {
+      window.location.hash = 'menu';
+    }
   } else {
     currentSubPage = id;
     if (window.location.hash === '#sub') {
