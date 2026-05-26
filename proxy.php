@@ -1,5 +1,5 @@
 <?php
-$url = 'https://script.google.com/macros/s/AKfycbyPGMfTuDeRSJUw3YidHTM-MDLsjLEwjoOeT6q1PgKAjazddrizPMieJff-jtd9Q3yypA/exec?sheet_name=Data+Sensor';
+$url = 'https://script.google.com/macros/s/AKfycbzBJ__fMnqREXfHEykgO8xZnrnoz4onXyC4OpkzYCJ5IuUaG_4olRXKkEbczY7eDCU54Q/exec';
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
