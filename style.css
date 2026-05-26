@@ -742,7 +742,7 @@ tbody td {
 }
 
 .m-card.open .m-body {
-    max-height: 400px;
+    max-height: 2000px;
     border-top-width: 1px
 }
 
@@ -764,6 +764,17 @@ tbody td {
 
 .m-body-inner strong {
     color: var(--text)
+}
+
+.m-body-inner img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--r-sm);
+    margin: 8px 0;
+    display: block;
+    object-fit: contain;
+    border: 1px solid var(--border);
 }
 
 .komp-page {

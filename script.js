@@ -3,16 +3,40 @@ const PAGE_TO_NAV = {
   'p-menu': 'nb-menu', 'p-meas': 'nb-meas',
   'p-komp': 'nb-komp', 'p-mat': 'nb-mat', 'p-auth': 'nb-mat'
 };
-function goTo(id) {
+
+// navigasi halaman dengan history API
+function goTo(id, pushHistory = true) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
   const pg = document.getElementById(id);
   if (pg) pg.classList.add('active');
   const nb = PAGE_TO_NAV[id];
-  if (nb) document.getElementById(nb).classList.add('active');
+  if (nb) {
+    const navElem = document.getElementById(nb);
+    if (navElem) navElem.classList.add('active');
+  }
+
   if (pg) pg.scrollTop = 0;
+  if (pushHistory) {
+    history.pushState({ pageId: id }, '', '#' + id);
+  }
 }
+
+if (!history.state) {
+  history.replaceState({ pageId: 'p-menu' }, '', '#p-menu');
+}
+
+window.addEventListener('popstate', function (event) {
+  if (event.state && event.state.pageId) {
+    goTo(event.state.pageId, false);
+  } else {
+    goTo('p-menu', false);
+  }
+});
+
 document.getElementById('nb-menu').classList.add('active');
+
 
 function toggleMateri(card) {
   card.classList.toggle('open');
