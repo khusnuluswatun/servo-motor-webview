@@ -9,6 +9,24 @@
     href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inconsolata:wght@400;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    .m-body-inner img,
+    .komp-info img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      border-radius: 8px !important;
+      margin: 12px 0 !important;
+      border: 1px solid var(--border, #e2e8f0) !important;
+      object-fit: contain !important;
+      background-color: #ffffff !important;
+    }
+
+    .m-card.open .m-body {
+      max-height: 2000px !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -380,13 +398,13 @@
           <div class="komp-grid">
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:#f5f3ff">
+              <!-- <div class="komp-icon" style="background:#f5f3ff">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="9" stroke="#8b5cf6" stroke-width="1.8" />
                   <line x1="12" y1="11" x2="12" y2="17" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" />
                   <circle cx="12" cy="8" r="1" fill="#8b5cf6" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:#f5f3ff;color:#8b5cf6">Informasi Umum</span>
                 <h4>Training Kit Kendali Motor Listrik 3 Fasa (HMI Based)</h4>
@@ -398,14 +416,14 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--accent-bg)">
+              <!-- <div class="komp-icon" style="background:var(--accent-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <rect x="3" y="3" width="18" height="14" rx="2" stroke="#0ea5e9" stroke-width="1.8" />
                   <line x1="3" y1="19" x2="21" y2="19" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="9" y1="19" x2="9" y2="21" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="15" y1="19" x2="15" y2="21" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--accent-bg);color:var(--accent)">Desain</span>
                 <h4>Desain Training Kit</h4>
@@ -417,14 +435,14 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--red-bg)">
+              <!-- <div class="komp-icon" style="background:var(--red-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <rect x="7" y="2" width="10" height="16" rx="2" stroke="#ef4444" stroke-width="1.8" />
                   <line x1="10" y1="6" x2="14" y2="6" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="10" y1="9" x2="14" y2="9" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="12" y1="18" x2="12" y2="22" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--red-bg);color:var(--red)">Proteksi</span>
                 <h4>Miniature Circuit Breaker (MCB) 3 Fasa</h4>
@@ -436,14 +454,14 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--amber-bg)">
+              <!-- <div class="komp-icon" style="background:var(--amber-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <rect x="9" y="2" width="6" height="16" rx="2" stroke="#f59e0b" stroke-width="1.8" />
                   <line x1="11" y1="6" x2="13" y2="6" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="11" y1="9" x2="13" y2="9" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="12" y1="18" x2="12" y2="22" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--amber-bg);color:var(--amber)">Proteksi</span>
                 <h4>Miniature Circuit Breaker (MCB) 1 Fasa</h4>
@@ -455,7 +473,7 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--green-bg)">
+              <!-- <div class="komp-icon" style="background:var(--green-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="10" r="5" stroke="#10b981" stroke-width="1.8" />
                   <path d="M9 15.5h6" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" />
@@ -464,7 +482,7 @@
                   <line x1="19" y1="6" x2="20.5" y2="4.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="5" y1="6" x2="3.5" y2="4.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--green-bg);color:var(--green)">Indikator</span>
                 <h4>Lampu Indikator</h4>
@@ -475,13 +493,13 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--accent-bg)">
+              <!-- <div class="komp-icon" style="background:var(--accent-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="11" r="5" stroke="#0ea5e9" stroke-width="1.8" />
                   <circle cx="12" cy="11" r="2.5" fill="rgba(14,165,233,.2)" stroke="#0ea5e9" stroke-width="1.2" />
                   <rect x="4" y="17" width="16" height="4" rx="2" stroke="#0ea5e9" stroke-width="1.5" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--accent-bg);color:var(--accent)">Kontrol</span>
                 <h4>Push Button</h4>
@@ -493,14 +511,14 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--red-bg)">
+              <!-- <div class="komp-icon" style="background:var(--red-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="9" stroke="#ef4444" stroke-width="1.8" />
                   <circle cx="12" cy="12" r="5" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1.5" />
                   <line x1="12" y1="8" x2="12" y2="12" stroke="#ef4444" stroke-width="2" stroke-linecap="round" />
                   <circle cx="12" cy="15" r="1" fill="#ef4444" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--red-bg);color:var(--red)">Darurat</span>
                 <h4>Emergency Switch</h4>
@@ -512,7 +530,7 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--amber-bg)">
+              <!-- <div class="komp-icon" style="background:var(--amber-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="8" cy="12" r="3" stroke="#f59e0b" stroke-width="1.8" />
                   <circle cx="16" cy="12" r="3" stroke="#f59e0b" stroke-width="1.8" />
@@ -520,7 +538,7 @@
                   <line x1="2" y1="12" x2="5" y2="12" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="19" y1="12" x2="22" y2="12" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--amber-bg);color:var(--amber)">Kontrol</span>
                 <h4>Selector Switch</h4>
@@ -534,14 +552,14 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--accent-bg)">
+              <!-- <div class="komp-icon" style="background:var(--accent-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <rect x="3" y="6" width="18" height="12" rx="2" stroke="#0ea5e9" stroke-width="1.8" />
                   <line x1="8" y1="10" x2="8" y2="14" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" />
                   <line x1="12" y1="10" x2="12" y2="14" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" />
                   <line x1="16" y1="10" x2="16" y2="14" stroke="#0ea5e9" stroke-width="1.8" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--accent-bg);color:var(--accent)">Switching</span>
                 <h4>Magnetic Contactor</h4>
@@ -553,7 +571,7 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--amber-bg)">
+              <!-- <div class="komp-icon" style="background:var(--amber-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <path d="M12 3C9 7 9 9 12 13c3-4 3-6 0-10z" stroke="#f59e0b" stroke-width="1.5"
                     stroke-linejoin="round" />
@@ -561,7 +579,7 @@
                   <line x1="7" y1="13" x2="5" y2="11" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
                   <line x1="17" y1="13" x2="19" y2="11" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--amber-bg);color:var(--amber)">Proteksi</span>
                 <h4>Thermal Overload Relay (TOR)</h4>
@@ -573,14 +591,14 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:#f5f3ff">
+              <!-- <div class="komp-icon" style="background:#f5f3ff">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="13" r="8" stroke="#8b5cf6" stroke-width="1.8" />
                   <line x1="12" y1="9" x2="12" y2="13" stroke="#8b5cf6" stroke-width="1.8" stroke-linecap="round" />
                   <line x1="12" y1="13" x2="15" y2="15" stroke="#8b5cf6" stroke-width="1.8" stroke-linecap="round" />
                   <line x1="9" y1="2" x2="15" y2="2" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:#f5f3ff;color:#8b5cf6">Timer</span>
                 <h4>Timer Delay Relay</h4>
@@ -616,14 +634,14 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--accent-bg)">
+              <!-- <div class="komp-icon" style="background:var(--accent-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <rect x="2" y="5" width="20" height="14" rx="2" stroke="#0ea5e9" stroke-width="1.8" />
                   <line x1="6" y1="9" x2="18" y2="9" stroke="#0ea5e9" stroke-width="1.2" stroke-linecap="round" />
                   <line x1="6" y1="12" x2="14" y2="12" stroke="#0ea5e9" stroke-width="1.2" stroke-linecap="round" />
                   <line x1="6" y1="15" x2="11" y2="15" stroke="#0ea5e9" stroke-width="1.2" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--accent-bg);color:var(--accent)">HMI</span>
                 <h4>LCD Nextion</h4>
@@ -634,14 +652,14 @@
             </div>
 
             <div class="komp-card">
-              <div class="komp-icon" style="background:var(--amber-bg)">
+              <!-- <div class="komp-icon" style="background:var(--amber-bg)">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="9" stroke="#f59e0b" stroke-width="1.8" />
                   <path d="M8 14 L12 8 L13 12 L16 10" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
                   <line x1="4" y1="19" x2="20" y2="19" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round" />
                 </svg>
-              </div>
+              </div> -->
               <div class="komp-info">
                 <span class="tag" style="background:var(--amber-bg);color:var(--amber)">Sensor</span>
                 <h4>Power Meter PZEM-004T</h4>
@@ -673,22 +691,27 @@
 
           <div class="materi-list">
 
-            <div class="m-card" onclick="toggleMateri(this)">
+            <div class="m-card open" onclick="toggleMateri(this)">
               <div class="m-card-head">
-                <div class="m-num">1</div>
-                <div class="m-title">Motor Induksi 3 Fase</div>
-                <span class="m-arrow">▶</span>
+                <!-- <div class="m-num"></div> -->
+                <div class="m-title">Wiring Diagram Rangkaian</div>
+                <!-- <span class="m-arrow">▶</span> -->
               </div>
               <div class="m-body">
                 <div class="m-body-inner">
-                  Motor induksi 3 fase adalah mesin listrik yang mengubah energi listrik AC 3 fase menjadi energi
-                  mekanik rotasi. Prinsip kerjanya berdasarkan <strong>induksi elektromagnetik</strong> — medan magnet
-                  putar (rotating magnetic field) yang dihasilkan stator menginduksi arus pada rotor sehingga rotor ikut
-                  berputar.
+                  Wiring diagram digunakan sebagai panduan dalam melakukan
+                  penyambungan rangkaian pada training kit kendali motor listrik tiga fasa
+                  berbasis Human-Machine Interface (HMI). Diagram ini membantu pengguna
+                  memahami hubungan antar komponen pada rangkaian kontrol maupun
+                  rangkaian daya sehingga proses praktikum dapat dilakukan dengan lebih
+                  sistematis, aman, dan sesuai prosedur. Training kit ini meliputi
+                  beberapa jenis rangkaian kendali motor listrik berikut
                   <ul>
-                    <li>Stator: bagian diam dengan belitan 3 fase</li>
-                    <li>Rotor: bagian berputar (squirrel cage atau wound rotor)</li>
-                    <li>Kecepatan sinkron: Ns = 120f/P (f=frekuensi, P=jumlah kutub)</li>
+                    <li>a. Wiring Diagram Direct On-Line (DOL)</li>
+                    <li>b. Wiring Diagram Forward-Reverse</li>
+                    <li>c. Wiring Diagram Star-Delta</li>
+                    <li>d. Wiring Diagram Star-Delta Otomatis </li>
+                    <li>e. Wiring Diagram Star-Delta Otomatis dengan HMI</li>
                   </ul>
                 </div>
               </div>
@@ -696,111 +719,130 @@
 
             <div class="m-card" onclick="toggleMateri(this)">
               <div class="m-card-head">
-                <div class="m-num">2</div>
-                <div class="m-title">Rangkaian Direct On Line (DOL)</div>
+                <div class="m-num">a</div>
+                <div class="m-title">Wiring Diagram Direct On-Line (DOL)</div>
                 <span class="m-arrow">▶</span>
               </div>
               <div class="m-body">
                 <div class="m-body-inner">
-                  DOL adalah metode starting motor paling sederhana di mana motor langsung dihubungkan ke tegangan
-                  jaringan penuh tanpa rangkaian pereduksi tegangan.
-                  <ul>
-                    <li>Cocok untuk motor kecil hingga ±5,5 kW</li>
-                    <li>Arus starting tinggi (5–7× I nominal)</li>
-                    <li>Torsi starting besar dan langsung</li>
-                    <li>Komponen: MCB + Kontaktor + TOR + Push Button ON/OFF</li>
-                  </ul>
-                  <strong>Keuntungan:</strong> murah, sederhana, torsi langsung besar.<br>
-                  <strong>Kekurangan:</strong> lonjakan arus besar saat starting.
+                  <img src="assets/w1.png" alt="">
+                  <strong>Wiring diagram Direct On-Line (DOL)</strong> digunakan sebagai panduan
+                  penyambungan rangkaian pengasutan motor listrik tiga fasa secara
+                  langsung ke sumber tegangan. Rangkaian ini terdiri dari komponen utama
+                  seperti push button, kontaktor, thermal overload relay (TOR), dan motor
+                  listrik tiga fasa. Penggunaan rangkaian DOL bertujuan untuk memahami
+                  prinsip dasar pengoperasian dan pengendalian motor listrik secara
+                  sederhana.
                 </div>
               </div>
             </div>
 
             <div class="m-card" onclick="toggleMateri(this)">
               <div class="m-card-head">
-                <div class="m-num">3</div>
-                <div class="m-title">Tegangan &amp; Arus Fase</div>
+                <div class="m-num">b</div>
+                <div class="m-title">Wiring Diagram Forward-Reverse</div>
                 <span class="m-arrow">▶</span>
               </div>
               <div class="m-body">
                 <div class="m-body-inner">
-                  <strong>Tegangan Fase (V Phase)</strong> adalah tegangan antara salah satu konduktor fase dan titik
-                  netral. Pada sistem 380/220 V Indonesia:
-                  <ul>
-                    <li>Tegangan fase-netral: 220 V nominal</li>
-                    <li>Tegangan fase-fase: 380 V nominal</li>
-                    <li>Toleransi: ±10% (198–242 V)</li>
-                  </ul>
-                  <strong>Arus Fase (I Phase)</strong> mengalir pada masing-masing konduktor fase. Monitoring arus
-                  penting untuk mendeteksi beban lebih, putusnya fase, dan kondisi abnormal lainnya.
+                  <img src="assets/w2.png" alt="">
+                  <strong>Wiring diagram forward-reverse</strong> digunakan sebagai panduan
+                  penyambungan rangkaian kendali motor listrik dengan dua arah putaran.
+                  Sistem ini bekerja dengan cara menukar dua fasa pada rangkaian daya
+                  sehingga motor dapat berputar maju (forward) maupun mundur (reverse).
+                  Pada rangkaian ini digunakan sistem interlock untuk mencegah kedua
+                  kontaktor bekerja secara bersamaan demi menjaga keamanan sistem.
                 </div>
               </div>
             </div>
 
             <div class="m-card" onclick="toggleMateri(this)">
               <div class="m-card-head">
-                <div class="m-num">4</div>
-                <div class="m-title">Ketidakseimbangan Fase</div>
+                <div class="m-num">c</div>
+                <div class="m-title">Wiring Diagram Star-Delta</div>
                 <span class="m-arrow">▶</span>
               </div>
               <div class="m-body">
                 <div class="m-body-inner">
-                  Ketidakseimbangan tegangan terjadi bila tegangan antar fase tidak sama. Standar <strong>NEMA
-                    MG-1</strong> mensyaratkan ketidakseimbangan ≤ 1% untuk operasi normal.
-                  <ul>
-                    <li>Formula: % Imbalance = (Deviasi maks / Rata-rata) × 100%</li>
-                    <li>Efek: panas berlebih pada belitan, getaran, umur motor berkurang</li>
-                    <li>Setiap 1% ketidakseimbangan menaikkan suhu ±1–2%</li>
-                  </ul>
-                  Ketidakseimbangan arus lebih berbahaya dari ketidakseimbangan tegangan dan sering disebabkan oleh
-                  beban tidak merata.
+                  <img src="assets/w3.png" alt="">
+                  <strong>Wiring diagram star-delta</strong> digunakan sebagai panduan penyambungan
+                  rangkaian pengasutan motor listrik tiga fasa dengan metode star-delta
+                  secara manual. Pada saat starting, motor dihubungkan dalam konfigurasi
+                  bintang (star) untuk mengurangi arus awal yang mengalir ke motor.
+                  Selanjutnya, perpindahan dari hubungan star ke delta dilakukan secara
+                  manual menggunakan push button sesuai prosedur pengoperasian.
+                  Rangkaian ini menggunakan beberapa komponen utama seperti
+                  kontaktor, push button, thermal overload relay (TOR), dan motor listrik
+                  tiga fasa sebagai sistem pengendali. Penggunaan rangkaian star-delta
+                  manual bertujuan untuk membantu pengguna memahami prinsip dasar
+                  perpindahan hubungan star ke delta secara langsung pada sistem kendali
+                  motor listrik tiga fasa.
+                </div>
+              </div>
+            </div>
+
+            <div class="m-card open" onclick="toggleMateri(this)">
+              <div class="m-card-head">
+                <!-- <div class="m-num">6</div> -->
+                <div class="m-title">Rangkaian Daya</div>
+                <!-- <span class="m-arrow">▶</span> -->
+              </div>
+              <div class="m-body">
+                <div class="m-body-inner">
+                  <img src="assets/rangkaianDaya.png" alt="">
                 </div>
               </div>
             </div>
 
             <div class="m-card" onclick="toggleMateri(this)">
               <div class="m-card-head">
-                <div class="m-num">5</div>
-                <div class="m-title">Sistem Proteksi Motor</div>
+                <div class="m-num">d</div>
+                <div class="m-title">Wiring Diagram Star-Delta Otomatis</div>
                 <span class="m-arrow">▶</span>
               </div>
               <div class="m-body">
                 <div class="m-body-inner">
-                  Proteksi motor bertujuan melindungi motor dan rangkaian dari kondisi abnormal:
-                  <ul>
-                    <li><strong>MCB/MCCB:</strong> proteksi hubung singkat &amp; arus lebih pada rangkaian utama</li>
-                    <li><strong>Thermal Overload Relay:</strong> proteksi beban lebih berkelanjutan (panas)</li>
-                    <li><strong>Fuse:</strong> proteksi hubung singkat cepat</li>
-                    <li><strong>Thermistor/PTC:</strong> proteksi suhu belitan langsung</li>
-                  </ul>
-                  Kombinasi MCB + Kontaktor + TOR memberikan perlindungan menyeluruh untuk aplikasi DOL standar
-                  industri.
+                  <img src="assets/w4.png" alt="">
+                  <strong>Wiring diagram star-delta otomatis</strong> digunakan sebagai panduan
+                  penyambungan sistem pengasutan motor listrik tiga fasa dengan
+                  perpindahan hubungan star ke delta secara otomatis menggunakan timer.
+                  Sistem akan menghubungkan motor pada konfigurasi star saat awal
+                  pengoperasian, kemudian secara otomatis berpindah ke konfigurasi delta
+                  setelah waktu tertentu sesuai pengaturan timer.
+                  Proses perpindahan kontaktor dilakukan secara otomatis tanpa
+                  pengoperasian manual oleh pengguna. Penggunaan sistem ini bertujuan
+                  untuk membantu pengguna memahami prinsip kerja otomasi pada sistem
+                  starting motor listrik tiga fasa.
                 </div>
               </div>
             </div>
 
             <div class="m-card" onclick="toggleMateri(this)">
               <div class="m-card-head">
-                <div class="m-num">6</div>
-                <div class="m-title">Monitoring IoT via Google Sheets</div>
+                <div class="m-num">e</div>
+                <div class="m-title">Wiring Diagram Star-Delta Otomatis dengan HMI</div>
                 <span class="m-arrow">▶</span>
               </div>
               <div class="m-body">
                 <div class="m-body-inner">
-                  Sistem ini menggunakan <strong>Google Sheets sebagai database IoT</strong> untuk menyimpan dan
-                  menampilkan data sensor secara real-time.
-                  <ul>
-                    <li><strong>Hardware:</strong> ESP32/ESP8266 + sensor tegangan (ZMPT101B) + sensor arus (SCT-013)
-                    </li>
-                    <li><strong>Firmware:</strong> membaca ADC dan mengirim data ke Sheets via HTTP POST (Google Apps
-                      Script)</li>
-                    <li><strong>Sheets API v4:</strong> dashboard ini membaca baris terbaru sebagai nilai live</li>
-                    <li><strong>Format kolom:</strong> A=Timestamp, B=V1, C=I1, D=V2, E=I2, F=V3, G=I3</li>
-                  </ul>
-                  Auto-refresh tersedia setiap 10 detik, 30 detik, dan 1 menit sesuai kebutuhan pemantauan.
+                  <img src="assets/w5.png" alt="">
+                  <strong>Wiring diagram star-delta otomatis dengan HMI</strong> digunakan sebagai
+                  panduan penyambungan sistem pengasutan motor listrik tiga fasa yang
+                  terintegrasi dengan Human-Machine Interface (HMI). Sistem ini
+                  memanfaatkan timer digital pada HMI sebagai pengatur waktu
+                  perpindahan dari hubungan star ke delta.
+                  Melalui tampilan HMI, pengguna dapat melakukan pengaturan waktu
+                  delay sesuai kebutuhan praktikum sehingga proses pengoperasian menjadi
+                  lebih mudah dan fleksibel. Setelah parameter waktu ditentukan, sistem
+                  akan menjalankan proses perpindahan kontaktor secara otomatis
+                  berdasarkan pengaturan pada HMI. Penggunaan rangkaian ini bertujuan
+                  21
+                  untuk membantu pengguna memahami penerapan HMI pada sistem
+                  otomasi dan monitoring motor listrik tiga fasa
                 </div>
               </div>
             </div>
+
 
           </div>
         </div>
