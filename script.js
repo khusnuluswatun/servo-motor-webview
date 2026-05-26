@@ -4,8 +4,8 @@ const PAGE_TO_NAV = {
   'p-komp': 'nb-komp', 'p-mat': 'nb-mat', 'p-auth': 'nb-mat'
 };
 
-// navigasi halaman dengan history API
-function goTo(id, pushHistory = true) {
+let currentSubPage = 'p-meas'; // Default subpage pertama jika reload di status sub
+function goToPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
 
@@ -18,20 +18,37 @@ function goTo(id, pushHistory = true) {
   }
 
   if (pg) pg.scrollTop = 0;
-  if (pushHistory) {
-    history.pushState({ pageId: id }, '', '#' + id);
+}
+
+function goTo(id) {
+  if (id === 'p-menu') {
+    window.location.hash = 'menu';
+  } else {
+    currentSubPage = id;
+    if (window.location.hash === '#sub') {
+      goToPage(id);
+    } else {
+      window.location.hash = 'sub';
+    }
   }
 }
 
-if (!history.state) {
-  history.replaceState({ pageId: 'p-menu' }, '', '#p-menu');
-}
-
-window.addEventListener('popstate', function (event) {
-  if (event.state && event.state.pageId) {
-    goTo(event.state.pageId, false);
+window.addEventListener('hashchange', function() {
+  const hash = window.location.hash;
+  if (hash === '#sub') {
+    goToPage(currentSubPage);
   } else {
-    goTo('p-menu', false);
+    goToPage('p-menu');
+  }
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+  const hash = window.location.hash;
+  if (hash === '#sub') {
+    goToPage(currentSubPage);
+  } else {
+    window.location.hash = 'menu';
+    goToPage('p-menu');
   }
 });
 
@@ -87,8 +104,7 @@ function drawGauge(id, val, min, max) {
   ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 2 * Math.PI);
   ctx.fillStyle = '#0f172a'; ctx.fill();
 
-  // Min/max text
-  ctx.font = '9px Inconsolata,monospace'; ctx.fillStyle = '#94a3b8';
+  ctx.font = 'bold 9px Inconsolata,monospace'; ctx.fillStyle = '#000000';
   ctx.textAlign = 'left'; ctx.fillText(min, 4, cy + 2);
   ctx.textAlign = 'right'; ctx.fillText(max, W - 4, cy + 2);
 }
