@@ -134,7 +134,7 @@ function setTimer() {
 async function fetchSheets() {
   if (autoRefreshTimer) { clearTimeout(autoRefreshTimer); autoRefreshTimer = null; }
   setSyncState('loading');
-  const url = 'proxy.php'; // bypass CORS
+  const url = 'https://script.google.com/macros/s/AKfycbzBJ__fMnqREXfHEykgO8xZnrnoz4onXyC4OpkzYCJ5IuUaG_4olRXKkEbczY7eDCU54Q/exec?sheet_name=Data+Sensor';
 
   try {
     const res = await fetch(url);
